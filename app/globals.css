@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 30% 96%;
+    --foreground: 20 14% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14% 4%;
+    --primary: 24 9% 23%;
+    --primary-foreground: 60 9% 98%;
+    --secondary: 60 4% 90%;
+    --secondary-foreground: 24 9% 23%;
+    --muted: 60 4% 90%;
+    --muted-foreground: 25 5% 45%;
+    --accent: 60 4% 90%;
+    --accent-foreground: 24 9% 23%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 9% 98%;
+    --border: 20 5% 80%;
+    --input: 20 5% 80%;
+    --ring: 20 14% 4%;
+    --radius: 0.5rem;
+    --font-sans: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', serif;
+    --font-serif: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', serif;
+    --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+  }
+
+  .dark {
+    --background: 20 14% 4%;
+    --foreground: 60 9% 98%;
+    --card: 20 14% 4%;
+    --card-foreground: 60 9% 98%;
+    --popover: 20 14% 4%;
+    --popover-foreground: 60 9% 98%;
+    --primary: 60 9% 98%;
+    --primary-foreground: 24 9% 23%;
+    --secondary: 12 6% 15%;
+    --secondary-foreground: 60 9% 98%;
+    --muted: 12 6% 15%;
+    --muted-foreground: 24 5% 64%;
+    --accent: 12 6% 15%;
+    --accent-foreground: 60 9% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 60 9% 98%;
+    --border: 12 6% 15%;
+    --input: 12 6% 15%;
+    --ring: 24 5% 64%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
