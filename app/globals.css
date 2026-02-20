@@ -75,4 +75,55 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+  
+  /* 移动端优化 */
+  .safe-area-padding {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .min-h-screen-safe {
+    min-height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  }
+  
+  /* 触摸优化 */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* 微信内优化 */
+  .wechat-optimized {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* 防止文字溢出 */
+  .text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* 移动端字体优化 */
+  .mobile-text-base {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* 按钮触摸区域 */
+  .touch-button {
+    @apply touch-target px-4 py-3 rounded-lg;
+  }
+  
+  /* 卡片阴影优化 */
+  .mobile-card-shadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* 渐变背景优化 */
+  .mobile-gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+  }
 }

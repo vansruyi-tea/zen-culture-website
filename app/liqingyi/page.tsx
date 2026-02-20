@@ -3,6 +3,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { Button } from '@/components/ui/button'
+import WeChatShare from '@/components/WeChatShare'
+import { motion } from 'framer-motion'
 import { Mail, MapPin, Users, Heart, Leaf, Mountain, Target, Globe, Award, Coffee, Mic, Home } from 'lucide-react'
 
 export default function LiQingYiPage() {
@@ -54,35 +56,37 @@ export default function LiQingYiPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20 wechat-optimized safe-area-padding">
+      {/* Hero Section - 移动端优化 */}
+      <section className="relative py-12 md:py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10" />
-        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container relative mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <Avatar className="h-48 w-48 border-4 border-background shadow-2xl">
+            <div className="flex flex-col items-center text-center">
+              <Avatar className="h-32 w-32 md:h-48 md:w-48 border-4 border-background shadow-xl mb-6 md:mb-8">
                 <AvatarImage src="/liqingyi-avatar.jpg" alt="李青忆" />
-                <AvatarFallback className="text-4xl">李</AvatarFallback>
+                <AvatarFallback className="text-3xl md:text-4xl">李</AvatarFallback>
               </Avatar>
-              <div className="flex-1 text-center md:text-left">
-                <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-4">
+              
+              <div className="space-y-4 md:space-y-6">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary">
                   李青忆
                 </h1>
-                <p className="text-2xl md:text-3xl font-medium text-muted-foreground mb-6">
+                <p className="text-xl md:text-2xl lg:text-3xl font-medium text-muted-foreground">
                   茶心映山海 · 她力振乡邦
                 </p>
-                <p className="text-lg text-foreground/80 mb-8 leading-relaxed">
+                <p className="text-sm md:text-lg text-foreground/80 leading-relaxed max-w-2xl mx-auto px-4">
                   扎根云滇厚土的新时代女性引领者，中华禅茶文化传承者，
                   乡村振兴战略践行者，公益自媒体赋能体系开创者。
                 </p>
-                <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                  <Badge variant="secondary" className="text-sm px-4 py-2">
-                    <MapPin className="h-4 w-4 mr-2" />
+                
+                <div className="flex flex-wrap gap-2 justify-center">
+                  <Badge variant="secondary" className="text-xs md:text-sm px-3 py-1.5">
+                    <MapPin className="h-3 w-3 md:h-4 md:w-4 mr-1.5" />
                     云南峨山 · 哀牢山腹地
                   </Badge>
-                  <Badge variant="secondary" className="text-sm px-4 py-2">
-                    <Heart className="h-4 w-4 mr-2" />
+                  <Badge variant="secondary" className="text-xs md:text-sm px-3 py-1.5">
+                    <Heart className="h-3 w-3 md:h-4 md:w-4 mr-1.5" />
                     禅宗临济宗如淦法师皈依弟子
                   </Badge>
                 </div>
@@ -92,18 +96,18 @@ export default function LiQingYiPage() {
         </div>
       </section>
 
-      {/* Core Tags */}
-      <section className="py-12 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Core Tags - 移动端优化 */}
+      <section className="py-8 md:py-12 bg-background">
+        <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
               {coreTags.map((tag, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-3 p-4 rounded-lg border bg-card hover:bg-accent/50 transition-colors"
+                  className="flex items-center gap-3 p-3 md:p-4 rounded-xl border bg-card hover:bg-accent/50 transition-colors mobile-card-shadow"
                 >
-                  <div className="text-primary">{tag.icon}</div>
-                  <span className="text-sm font-medium">{tag.text}</span>
+                  <div className="text-primary shrink-0">{tag.icon}</div>
+                  <span className="text-xs md:text-sm font-medium text-ellipsis">{tag.text}</span>
                 </div>
               ))}
             </div>
@@ -111,98 +115,147 @@ export default function LiQingYiPage() {
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto space-y-12">
+      {/* Main Content - 移动端优化 */}
+      <section className="py-12 md:py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto space-y-8 md:space-y-12">
             {sections.map((section, index) => (
-              <Card key={index} className="border-primary/20 shadow-lg">
-                <CardHeader className="bg-gradient-to-r from-primary/5 to-secondary/5">
-                  <div className="flex items-center gap-3">
-                    <div className="text-primary">{section.icon}</div>
-                    <CardTitle className="text-2xl font-serif text-primary">
-                      {section.title}
-                    </CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="pt-6">
-                  <div className="prose prose-lg max-w-none">
-                    {section.content.split('\n\n').map((paragraph, pIndex) => (
-                      <p key={pIndex} className="mb-4 text-foreground/80 leading-relaxed">
-                        {paragraph.split('**').map((text, i) => 
-                          i % 2 === 1 ? (
-                            <strong key={i} className="text-primary font-semibold">{text}</strong>
-                          ) : (
-                            text
-                          )
-                        )}
-                      </p>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+              >
+                <Card className="border-primary/20 mobile-card-shadow">
+                  <CardHeader className="bg-gradient-to-r from-primary/5 to-secondary/5 p-4 md:p-6">
+                    <div className="flex items-center gap-3">
+                      <div className="text-primary">{section.icon}</div>
+                      <CardTitle className="text-lg md:text-xl lg:text-2xl font-serif text-primary">
+                        {section.title}
+                      </CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-4 md:p-6 pt-4 md:pt-6">
+                    <div className="prose prose-sm md:prose-lg max-w-none mobile-text-base">
+                      {section.content.split('\n\n').map((paragraph, pIndex) => (
+                        <p key={pIndex} className="mb-3 md:mb-4 text-foreground/80 leading-relaxed">
+                          {paragraph.split('**').map((text, i) => 
+                            i % 2 === 1 ? (
+                              <strong key={i} className="text-primary font-semibold">{text}</strong>
+                            ) : (
+                              text
+                            )
+                          )}
+                        </p>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-16 bg-gradient-to-r from-primary/5 to-secondary/5">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center">
-            <Card className="border-primary/30 shadow-xl">
-              <CardHeader>
-                <CardTitle className="text-2xl font-serif text-primary">
+      {/* Contact Section - 移动端优化 */}
+      <section className="py-12 md:py-16 bg-gradient-to-r from-primary/5 to-secondary/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto">
+            <Card className="border-primary/30 mobile-card-shadow">
+              <CardHeader className="p-4 md:p-6">
+                <CardTitle className="text-xl md:text-2xl font-serif text-primary text-center">
                   加入我们
                 </CardTitle>
-                <CardDescription className="text-lg">
+                <CardDescription className="text-sm md:text-lg text-center">
                   核心理念：互助共创 抱团共赢 扎根乡土 翼起翱翔
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-center gap-3">
-                    <Mail className="h-5 w-5 text-primary" />
-                    <span className="text-lg font-medium">微信：shanger9561</span>
+              <CardContent className="p-4 md:p-6 space-y-4 md:space-y-6">
+                <div className="space-y-3 md:space-y-4">
+                  <div className="flex items-center justify-center gap-2 md:gap-3">
+                    <Mail className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+                    <span className="text-base md:text-lg font-medium">微信：shanger9561</span>
                   </div>
                   <Separator />
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="p-4 rounded-lg bg-background border">
-                      <h4 className="font-semibold text-primary mb-2">文化传承</h4>
-                      <p className="text-sm text-muted-foreground">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                    <div className="p-3 md:p-4 rounded-lg bg-background border">
+                      <h4 className="font-semibold text-primary mb-1 md:mb-2 text-sm md:text-base">文化传承</h4>
+                      <p className="text-xs md:text-sm text-muted-foreground">
                         禅茶文化 · 陶瓷艺术 · 中医养生 · 非遗传承
                       </p>
                     </div>
-                    <div className="p-4 rounded-lg bg-background border">
-                      <h4 className="font-semibold text-primary mb-2">公益赋能</h4>
-                      <p className="text-sm text-muted-foreground">
+                    <div className="p-3 md:p-4 rounded-lg bg-background border">
+                      <h4 className="font-semibold text-primary mb-1 md:mb-2 text-sm md:text-base">公益赋能</h4>
+                      <p className="text-xs md:text-sm text-muted-foreground">
                         女性成长 · 自媒体培训 · 实战陪跑 · 导师体系
                       </p>
                     </div>
                   </div>
                 </div>
-                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg py-6">
-                  <Mic className="mr-2 h-5 w-5" />
-                  立即加入云翼共创联盟
-                </Button>
+                
+                {/* 微信专用按钮 */}
+                <div className="space-y-3">
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-base md:text-lg py-4 md:py-6 rounded-xl touch-button">
+                    <Mic className="mr-2 h-4 w-4 md:h-5 md:w-5" />
+                    立即加入云翼共创联盟
+                  </Button>
+                  
+                  {/* 微信快速复制 */}
+                  <div className="text-center">
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText('shanger9561');
+                        alert('微信号已复制到剪贴板');
+                      }}
+                      className="text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      点击复制微信号
+                    </button>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Footer Quote */}
-      <section className="py-12 text-center">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Footer Quote - 移动端优化 */}
+      <section className="py-8 md:py-12 text-center">
+        <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <blockquote className="text-2xl font-serif italic text-primary/80">
+            <blockquote className="text-lg md:text-xl lg:text-2xl font-serif italic text-primary/80 px-4">
               "从茶山到山海，从个人成长到万众同行，以女性独有的柔韧与坚定，
               走出了一条'文化铸魂、公益立行、产业兴邦'的时代奋进之路。"
             </blockquote>
-            <p className="mt-4 text-muted-foreground">—— 李青忆</p>
+            <p className="mt-3 md:mt-4 text-sm md:text-base text-muted-foreground">—— 李青忆</p>
           </div>
         </div>
       </section>
+      
+      {/* 微信分享组件 */}
+      <WeChatShare 
+        title="李青忆：茶心映山海 · 她力振乡邦"
+        description="扎根云滇厚土的新时代女性引领者，中华禅茶文化传承者，乡村振兴战略践行者，公益自媒体赋能体系开创者。"
+      />
+      
+      {/* 微信分享提示 */}
+      <div className="fixed top-20 right-4 z-30 md:hidden">
+        <div className="bg-background/90 backdrop-blur-sm rounded-xl p-3 border shadow-lg max-w-xs animate-pulse">
+          <p className="text-xs text-primary font-medium">点击右上角 ···</p>
+          <p className="text-xs text-muted-foreground mt-1">分享给朋友</p>
+        </div>
+      </div>
+      
+      {/* 返回顶部按钮 */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="fixed bottom-20 right-4 z-40 md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm border shadow-lg hover:bg-accent active:scale-95 transition-all touch-target"
+        aria-label="返回顶部"
+      >
+        <svg className="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+      </button>
     </div>
   )
 }
