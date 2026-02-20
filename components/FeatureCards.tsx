@@ -6,19 +6,19 @@ import { ArrowRight } from 'lucide-react'
 
 const features = [
   {
-    name: '禅茶文化',
+    name: '疗愈文化',
     description: '体验正念茶修，学习茶禅一味',
     href: '/tea-culture',
     emoji: '🍵'
   },
   {
-    name: '陶瓷艺术',
+    name: '大师艺术',
     description: '学习传统陶瓷，感受泥土艺术',
     href: '/ceramic-art',
     emoji: '🏺'
   },
   {
-    name: '中医养生',
+    name: '药食康养',
     description: '了解中医智慧，实践健康生活',
     href: '/tcm-health',
     emoji: '🌿'

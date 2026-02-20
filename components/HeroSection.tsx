@@ -24,7 +24,7 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-8"
           >
             <Sparkles className="h-4 w-4" />
-            <span>李青忆引领 · 禅意生活体系</span>
+            <span>欢迎来到青忆的禅意文化空间</span>
           </motion.div>
           
           {/* Main Title */}

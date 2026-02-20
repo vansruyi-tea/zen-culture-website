@@ -10,7 +10,7 @@ export default function Home() {
     {
       icon: <Heart className="h-5 w-5" />,
       title: "文化传承",
-      description: "禅茶文化 · 陶瓷艺术 · 中医养生",
+      description: "疗愈文化 · 大师艺术 · 药食康养",
       color: "text-rose-600",
       bgColor: "bg-rose-50"
     },

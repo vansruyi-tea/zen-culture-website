@@ -8,11 +8,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 const navItems = [
   { name: '首页', href: '/' },
   { name: '李青忆', href: '/liqingyi' },
-  { name: '陶瓷艺术', href: '/ceramic-art' },
-  { name: '茶修文化', href: '/tea-culture' },
-  { name: '中医养生', href: '/tcm-health' },
+  { name: '大师艺术', href: '/ceramic-art' },
+  { name: '疗愈文化', href: '/tea-culture' },
+  { name: '药食康养', href: '/tcm-health' },
   { name: '公益课程', href: '/public-courses' },
-  { name: '联系', href: '/contact' },
+  { name: '联系青忆', href: '/contact' },
 ]
 
 export default function Navbar() {
