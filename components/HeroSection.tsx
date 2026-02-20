@@ -2,109 +2,132 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { ArrowRight, Sparkles, Leaf, Coffee } from 'lucide-react'
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/20 py-20 md:py-32">
-      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" />
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-background via-background to-primary/5">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 h-80 w-80 rounded-full bg-secondary/10 blur-3xl" />
+      </div>
       
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20 items-center">
-          {/* Left Content */}
+      <div className="container relative mx-auto px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center lg:text-left"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-8"
           >
-            <div className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-6">
-              <span className="mr-2">✨</span>
-              欢迎来到禅意文化空间
+            <Sparkles className="h-4 w-4" />
+            <span>李青忆引领 · 禅意生活体系</span>
+          </motion.div>
+          
+          {/* Main Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-6 text-4xl font-serif font-bold tracking-tight text-primary sm:text-5xl md:text-6xl"
+          >
+            <span className="block">茶心映山海</span>
+            <span className="block text-3xl sm:text-4xl md:text-5xl font-normal text-muted-foreground mt-2">
+              她力振乡邦
+            </span>
+          </motion.h1>
+          
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-10 text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto leading-relaxed"
+          >
+            新时代女性引领者 · 禅茶文化传承者
+            <br />
+            乡村振兴践行者 · 公益自媒体赋能开创者
+          </motion.p>
+          
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
+            <Link href="/liqingyi" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full sm:w-auto px-8 py-6 text-base rounded-xl bg-primary hover:bg-primary/90">
+                了解李青忆
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+            
+            <Link href="/public-courses" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-base rounded-xl border-primary text-primary hover:bg-primary/10">
+                公益课程
+              </Button>
+            </Link>
+          </motion.div>
+          
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto"
+          >
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-serif font-bold text-primary mb-1">500+</div>
+              <div className="text-xs md:text-sm text-muted-foreground">茶修学员</div>
             </div>
             
-            <h1 className="mb-6 text-4xl font-bold tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl">
-              <span className="block font-serif">禅意生活，</span>
-              <span className="block font-serif text-primary/80">心灵归宿</span>
-            </h1>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-serif font-bold text-primary mb-1">1000+</div>
+              <div className="text-xs md:text-sm text-muted-foreground">赋能女性</div>
+            </div>
             
-            <p className="mb-8 text-lg text-muted-foreground md:text-xl">
-              在这里，我们探索传统文化的精髓，体验陶瓷艺术的魅力，
-              学习茶修文化的智慧，了解中医养生的奥秘。
-              让我们一起在快节奏的生活中，寻找内心的宁静与平衡。
-            </p>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-serif font-bold text-primary mb-1">省级</div>
+              <div className="text-xs md:text-sm text-muted-foreground">陶瓷艺术大师</div>
+            </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link
-                href="/public-courses"
-                className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow-lg hover:bg-primary/90 transition-all hover:scale-105"
-              >
-                查看公益课程
-                <span className="ml-2">→</span>
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-lg border border-primary px-8 py-3 text-sm font-medium text-primary shadow-sm hover:bg-primary/10 transition-all"
-              >
-                加入微信社区
-              </Link>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-serif font-bold text-primary mb-1">云翼</div>
+              <div className="text-xs md:text-sm text-muted-foreground">共创联盟</div>
             </div>
           </motion.div>
           
-          {/* Right Image/Illustration */}
+          {/* Scroll indicator */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
           >
-            <div className="relative mx-auto aspect-square max-w-lg overflow-hidden rounded-2xl shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="mb-6 inline-block rounded-full bg-white/20 p-6 backdrop-blur-sm">
-                    <span className="text-6xl font-serif text-white">☯</span>
-                  </div>
-                  <h3 className="text-2xl font-serif font-bold text-white mb-2">
-                    阴阳和谐
-                  </h3>
-                  <p className="text-white/80">
-                    传统与现代的完美融合
-                  </p>
-                </div>
-              </div>
-              
-              {/* Decorative elements */}
-              <div className="absolute -top-6 -left-6 h-24 w-24 rounded-full bg-primary/10" />
-              <div className="absolute -bottom-6 -right-6 h-32 w-32 rounded-full bg-secondary/20" />
-            </div>
-            
-            {/* Floating elements */}
             <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 3 }}
-              className="absolute -top-4 right-10 hidden lg:block"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+              className="flex flex-col items-center gap-2"
             >
-              <div className="h-16 w-16 rounded-full bg-accent/30 backdrop-blur-sm" />
-            </motion.div>
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 3, delay: 1 }}
-              className="absolute -bottom-4 left-10 hidden lg:block"
-            >
-              <div className="h-12 w-12 rounded-full bg-primary/20 backdrop-blur-sm" />
+              <div className="h-6 w-px bg-primary/30" />
+              <span className="text-xs text-muted-foreground">探索更多</span>
             </motion.div>
           </motion.div>
         </div>
       </div>
       
-      {/* Scroll indicator */}
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
-      >
-        <div className="h-8 w-px bg-primary/30" />
-      </motion.div>
+      {/* Decorative elements */}
+      <div className="absolute top-20 left-10 opacity-10 hidden lg:block">
+        <Leaf className="h-24 w-24" />
+      </div>
+      
+      <div className="absolute bottom-20 right-10 opacity-10 hidden lg:block">
+        <Coffee className="h-24 w-24" />
+      </div>
     </section>
   )
 }
